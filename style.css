@@ -78,3 +78,14 @@ h1 {
   outline: 3px solid #17343c;
   outline-offset: 3px;
 }
+
+.course-content {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #dce8e9;
+}
+
+.course-content h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
