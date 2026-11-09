@@ -8,28 +8,35 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
+    <label class="course-menu" hidden>
+      <span class="visually-hidden">Kurs wechseln</span>
+      <select id="course-switcher">
+        <option value="healthcare">Healthcare</option>
+        <option value="social-work">Social Work</option>
+      </select>
+    </label>
     <main class="welcome">
-      <h1>Willkommen beim ENGAGE E-Learning.</h1>
-      <fieldset class="course-selection">
-        <legend>Wählen Sie Ihren E-Learning-Kurs</legend>
-        <div class="course-options">
-          <label class="course-option">
-            <input type="radio" name="course" value="healthcare">
-            <span>Gesundheitswesen</span>
-          </label>
-          <label class="course-option">
-            <input type="radio" name="course" value="social-work">
-            <span>Soziale Arbeit</span>
-          </label>
-        </div>
-      </fieldset>
-      <section class="course-content" id="healthcare-content" data-course-content="healthcare" aria-labelledby="healthcare-heading" hidden>
-        <h2 id="healthcare-heading">Gesundheitswesen</h2>
-        <!-- Add the Gesundheitswesen course content here. -->
+      <section id="welcome-view">
+        <h1>Willkommen beim ENGAGE E-Learning.</h1>
+        <fieldset class="course-selection">
+          <legend>Wählen Sie Ihren E-Learning-Kurs</legend>
+          <div class="course-options">
+            <label class="course-option">
+              <input type="radio" name="course" value="healthcare">
+              <span>Gesundheitswesen</span>
+            </label>
+            <label class="course-option">
+              <input type="radio" name="course" value="social-work">
+              <span>Soziale Arbeit</span>
+            </label>
+          </div>
+        </fieldset>
       </section>
-      <section class="course-content" id="social-work-content" data-course-content="social-work" aria-labelledby="social-work-heading" hidden>
-        <h2 id="social-work-heading">Soziale Arbeit</h2>
-        <!-- Add the Soziale Arbeit course content here. -->
+      <section class="course-content" data-course-content="healthcare" aria-label="Healthcare introduction" hidden>
+        <p>intro</p>
+      </section>
+      <section class="course-content" data-course-content="social-work" aria-label="Social Work introduction" hidden>
+        <p>intro</p>
       </section>
     </main>
     <script src="script.js" defer></script>

@@ -85,7 +85,45 @@ h1 {
   border-top: 1px solid #dce8e9;
 }
 
-.course-content h2 {
+.course-content p {
   margin: 0;
-  font-size: 1.5rem;
+  font-size: 1.125rem;
+}
+
+.course-menu {
+  position: fixed;
+  top: 1.5rem;
+  right: 1.5rem;
+  z-index: 1;
+}
+
+.course-menu select {
+  min-width: 9rem;
+  padding: 0.7rem 2rem 0.7rem 0.9rem;
+  border: 1px solid #dce8e9;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #17343c;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+}
+
+.course-menu select:focus-visible {
+  outline: 3px solid #17343c;
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+}
+
+[hidden] {
+  display: none !important;
 }
