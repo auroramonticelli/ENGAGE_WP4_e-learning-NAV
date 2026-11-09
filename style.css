@@ -90,6 +90,48 @@ h1 {
   font-size: 1.125rem;
 }
 
+.social-work-course h1 {
+  margin-bottom: 1.5rem;
+}
+
+.course-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  border-bottom: 1px solid #dce8e9;
+}
+
+.course-tab {
+  padding: 0.7rem 0.9rem;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: transparent;
+  color: #526a70;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+}
+
+.course-tab:hover {
+  color: #176f67;
+}
+
+.course-tab[aria-selected="true"] {
+  border-bottom-color: #176f67;
+  color: #17343c;
+}
+
+.course-tab:focus-visible,
+.course-tab-panel:focus-visible {
+  outline: 3px solid #17343c;
+  outline-offset: 3px;
+}
+
+.course-tab-panel {
+  min-height: 12rem;
+  padding-top: 1.5rem;
+}
+
 .course-menu {
   position: fixed;
   top: 1.5rem;
