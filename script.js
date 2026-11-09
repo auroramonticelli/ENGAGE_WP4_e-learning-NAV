@@ -7,6 +7,7 @@ const courseTabs = document.querySelectorAll(".course-tab");
 const courseTabPanels = document.querySelectorAll(".course-tab-panel");
 
 function showCourse(course) {
+  document.body.classList.toggle("social-work-active", course === "social-work");
   welcomeView.hidden = Boolean(course);
   courseMenu.hidden = !course;
   courseSwitcher.value = course || "healthcare";
