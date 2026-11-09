@@ -1,4 +1,4 @@
-const courseChoices = document.querySelectorAll('input[name="course"]');
+bc const courseChoices = document.querySelectorAll('input[name="course"]');
 const courseSections = document.querySelectorAll("[data-course-content]");
 
 function showSelectedCourse() {
