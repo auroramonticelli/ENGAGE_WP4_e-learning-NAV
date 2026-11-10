@@ -146,6 +146,40 @@ h1 {
   padding-top: 1.5rem;
 }
 
+.course-tab-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+.course-tab-panel p {
+  margin: 0 0 1.25rem;
+  color: #526a70;
+}
+
+.lesson-list {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.lesson-list li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.25rem 1rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid #dce8e9;
+  border-radius: 0.5rem;
+  background: #fff;
+}
+
+.lesson-list li span {
+  color: #526a70;
+  font-size: 0.9rem;
+}
+
 .course-menu {
   position: fixed;
   top: 1.5rem;
