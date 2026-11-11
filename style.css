@@ -180,6 +180,80 @@ h1 {
   font-size: 0.9rem;
 }
 
+.lesson-list li:has(.lesson) {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  display: block;
+}
+
+.lesson-list .lesson {
+  border: 1px solid #dce8e9;
+  border-radius: 0.5rem;
+  background: #fff;
+  padding: 0.85rem 1rem;
+}
+
+.lesson-list .lesson summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25rem 1rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+.lesson-list .lesson summary::-webkit-details-marker {
+  display: none;
+}
+
+.lesson-list .lesson summary::marker {
+  content: "";
+}
+
+.lesson-list .lesson summary::after {
+  content: "+";
+  color: #176f67;
+  font-weight: 650;
+}
+
+.lesson-list .lesson[open] summary::after {
+  content: "\2013";
+}
+
+.lesson-list .lesson summary:focus-visible {
+  outline: 3px solid #17343c;
+  outline-offset: 3px;
+}
+
+.lesson-list .lesson summary .lesson-title {
+  color: #17343c;
+}
+
+.lesson-list .lesson summary .lesson-meta {
+  color: #526a70;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.lesson-list .lesson[open] summary {
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid #dce8e9;
+}
+
+.lesson-content p {
+  margin: 0 0 0.75rem;
+  color: #17343c;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.lesson-content p:last-child {
+  margin-bottom: 0;
+}
+
 .course-menu {
   position: fixed;
   top: 1.5rem;
