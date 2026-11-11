@@ -156,6 +156,72 @@ h1 {
   color: #526a70;
 }
 
+.course-tab-panel h4 {
+  margin: 0 0 0.5rem;
+  color: #17343c;
+  font-size: 1.05rem;
+}
+
+.section-toggle {
+  margin: 1.5rem 0;
+}
+
+.section-toggle summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid #dce8e9;
+  border-radius: 0.5rem;
+  background: #fff;
+  cursor: pointer;
+  list-style: none;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.section-toggle summary:hover {
+  transform: scale(1.015);
+  border-color: #176f67;
+  box-shadow: 0 0.5rem 1rem rgb(23 52 60 / 10%);
+}
+
+.section-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.section-toggle summary::marker {
+  content: "";
+}
+
+.section-toggle summary h3 {
+  margin: 0;
+}
+
+.section-toggle summary::after {
+  content: "+";
+  color: #176f67;
+  font-weight: 650;
+  font-size: 1.25rem;
+}
+
+.section-toggle[open] summary::after {
+  content: "\2013";
+}
+
+.section-toggle summary:focus-visible {
+  outline: 3px solid #17343c;
+  outline-offset: 3px;
+}
+
+.section-toggle-content {
+  margin-top: 0.5rem;
+}
+
+.section-toggle-content p {
+  color: #17343c;
+}
+
 .lesson-list {
   display: grid;
   gap: 0.5rem;
@@ -194,12 +260,16 @@ h1 {
   padding: 0.85rem 1rem;
 }
 
-.lesson-list .lesson summary {
+.lesson-list .lesson summary,
+.lesson-list .lesson .lesson-header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: baseline;
   gap: 0.25rem 1rem;
+}
+
+.lesson-list .lesson summary {
   cursor: pointer;
   list-style: none;
 }
@@ -227,17 +297,18 @@ h1 {
   outline-offset: 3px;
 }
 
-.lesson-list .lesson summary .lesson-title {
+.lesson-list .lesson .lesson-title {
   color: #17343c;
 }
 
-.lesson-list .lesson summary .lesson-meta {
+.lesson-list .lesson .lesson-meta {
   color: #526a70;
   font-size: 0.9rem;
   white-space: nowrap;
 }
 
-.lesson-list .lesson[open] summary {
+.lesson-list .lesson[open] summary,
+.lesson-list .lesson .lesson-header {
   margin-bottom: 0.75rem;
   padding-bottom: 0.75rem;
   border-bottom: 1px solid #dce8e9;
@@ -252,6 +323,60 @@ h1 {
 
 .lesson-content p:last-child {
   margin-bottom: 0;
+}
+
+.source-list {
+  margin: 0;
+  padding-left: 1.25rem;
+  color: #526a70;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.source-list li {
+  margin-bottom: 0.5rem;
+}
+
+.source-list li:last-child {
+  margin-bottom: 0;
+}
+
+.sem-diagram {
+  margin: 1.5rem 0;
+  padding: 0;
+  text-align: center;
+}
+
+.sem-diagram img {
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+}
+
+.sem-diagram figcaption {
+  margin: 0.75rem auto 0;
+  max-width: 30rem;
+}
+
+.sem-diagram figcaption p {
+  margin: 0 0 0.4rem;
+  color: #526a70;
+  font-size: 0.9rem;
+}
+
+.sem-diagram figcaption p:last-child {
+  margin-bottom: 0;
+}
+
+.sem-diagram-title {
+  color: #17343c;
+  font-weight: 650;
+  font-size: 1rem;
+}
+
+.sem-diagram-note {
+  font-size: 0.8rem;
+  font-style: italic;
 }
 
 .course-menu {
