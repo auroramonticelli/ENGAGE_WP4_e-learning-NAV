@@ -416,3 +416,43 @@ h1 {
 [hidden] {
   display: none !important;
 }
+
+.site-footer {
+  width: 100%;
+  max-width: 48rem;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1.5rem;
+  border-top: 1px solid #dce8e9;
+  color: #526a70;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+body.social-work-active .site-footer {
+  max-width: none;
+  padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.site-footer p {
+  margin: 0 0 0.35rem;
+}
+
+.site-footer p:last-child {
+  margin-bottom: 0;
+}
+
+.site-footer a {
+  color: #176f67;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  text-decoration: underline;
+}
+
+.site-footer a:focus-visible {
+  outline: 3px solid #17343c;
+  outline-offset: 2px;
+}
