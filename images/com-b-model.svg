@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="comb-title comb-desc">
+  <title id="comb-title">The COM-B model</title>
+  <desc id="comb-desc">Capability, Opportunity and Motivation each influence Behaviour. Capability and Opportunity also influence Motivation, and Behaviour in turn feeds back on all three.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc6601"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #17343c; text-anchor: middle; }
+    .head { font-size: 20px; font-weight: 650; }
+    .sub { font-size: 14px; fill: #526a70; }
+    .box { fill: #fff4ec; stroke: #dc6601; stroke-width: 2; }
+    .beh { fill: #dc6601; stroke: #dc6601; stroke-width: 2; }
+    .beh-text { fill: #fff; font-size: 20px; font-weight: 650; }
+    .link { fill: none; stroke: #dc6601; stroke-width: 2; marker-start: url(#arrow); marker-end: url(#arrow); }
+    .one-way { marker-start: none; }
+  </style>
+
+  <!-- Links -->
+  <path class="link" d="M222,45 H560 V128"/>
+  <path class="link" d="M222,315 H560 V232"/>
+  <path class="link one-way" d="M222,100 L258,148"/>
+  <path class="link one-way" d="M222,260 L258,212"/>
+  <path class="link" d="M442,180 H498"/>
+
+  <!-- Capability -->
+  <rect class="box" x="20" y="20" width="200" height="100" rx="12"/>
+  <text class="head" x="120" y="58">Capability</text>
+  <text class="sub" x="120" y="82">Physical</text>
+  <text class="sub" x="120" y="102">Psychological</text>
+
+  <!-- Opportunity -->
+  <rect class="box" x="20" y="240" width="200" height="100" rx="12"/>
+  <text class="head" x="120" y="278">Opportunity</text>
+  <text class="sub" x="120" y="302">Physical</text>
+  <text class="sub" x="120" y="322">Social</text>
+
+  <!-- Motivation -->
+  <rect class="box" x="260" y="130" width="180" height="100" rx="12"/>
+  <text class="head" x="350" y="168">Motivation</text>
+  <text class="sub" x="350" y="192">Reflective</text>
+  <text class="sub" x="350" y="212">Automatic</text>
+
+  <!-- Behaviour -->
+  <rect class="beh" x="500" y="130" width="120" height="100" rx="12"/>
+  <text class="beh-text" x="560" y="187">Behaviour</text>
+</svg>

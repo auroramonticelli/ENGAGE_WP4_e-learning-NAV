@@ -1,3 +1,20 @@
+/* Design tokens — based on the ENGAGE brochure "Aktiv & in Kontakt bleiben" */
+:root {
+  --ink: #1d1d1b;
+  --muted: #5b5550;
+  --orange: #dc6601;        /* accent: borders, icons, markers */
+  --orange-title: #e07a2c;  /* title shape behind white heading text */
+  --orange-text: #b35300;   /* orange used for readable text */
+  --peach: #f5ad70;         /* brochure peach, decorative */
+  --peach-soft: #fbd7b8;
+  --cream: #fdebd6;
+  --cream-soft: #fff6ec;
+  --dots: #8a7d72;
+  --font-body: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-display: "Roboto Slab", Georgia, "Times New Roman", serif;
+  --page-pad: clamp(1.5rem, 5vw, 4rem);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,38 +25,81 @@ body {
   margin: 0;
   padding: 1.5rem;
   place-items: center;
-  background: #f2f6f7;
-  color: #17343c;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--cream-soft);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.55;
 }
 
 body.social-work-active {
   display: block;
   padding: 0;
+  background: #fff;
 }
 
+/* Page shell with brochure-style shapes */
 .welcome {
+  position: relative;
+  overflow: hidden;
   width: min(100%, 42rem);
-  padding: clamp(2rem, 8vw, 4.5rem);
-  border: 1px solid #dce8e9;
+  padding: var(--page-pad);
   border-radius: 1.25rem;
   background: #fff;
-  box-shadow: 0 1.5rem 4rem rgb(23 52 60 / 8%);
+  box-shadow: 0 1.5rem 4rem rgb(29 29 27 / 8%);
+}
+
+.welcome::after {
+  content: "";
+  position: absolute;
+  top: 6rem;
+  right: -18rem;
+  width: 36rem;
+  height: 36rem;
+  border-radius: 50%;
+  background: var(--cream);
+  z-index: 0;
+}
+
+.welcome > * {
+  position: relative;
+  z-index: 1;
 }
 
 body.social-work-active .welcome {
   width: 100%;
   min-height: 100vh;
-  padding: clamp(2rem, 5vw, 4rem);
-  border: 0;
   border-radius: 0;
   box-shadow: none;
 }
 
+body.social-work-active .welcome::after {
+  top: 2rem;
+  right: -22vw;
+  width: 55vw;
+  height: 55vw;
+  max-width: 60rem;
+  max-height: 60rem;
+}
+
+/* Title on an orange shape, as on the brochure section openers */
 h1 {
-  margin: 0 0 2rem;
+  display: inline-block;
+  margin: calc(var(--page-pad) * -1) 0 2rem calc(var(--page-pad) * -1);
+  padding: calc(var(--page-pad) + 1.5rem) 11rem 3.5rem var(--page-pad);
+  border-radius: 0 0 60% 0 / 0 0 100% 0;
+  background: var(--orange-title);
+  color: #fff;
+  font-family: var(--font-display);
   font-size: clamp(2rem, 7vw, 3.25rem);
+  font-weight: 700;
   line-height: 1.05;
+}
+
+h2,
+h3,
+h4,
+h5 {
+  line-height: 1.25;
 }
 
 .course-selection {
@@ -51,9 +111,9 @@ h1 {
 
 .course-selection legend {
   margin-bottom: 1rem;
-  color: #526a70;
+  color: var(--orange-text);
   font-size: 1.125rem;
-  font-weight: 650;
+  font-weight: 700;
 }
 
 .course-options {
@@ -67,36 +127,34 @@ h1 {
   min-height: 3.5rem;
   align-items: center;
   gap: 0.75rem;
-  padding: 0.9rem 1rem;
-  border: 1px solid #dce8e9;
-  border-radius: 0.5rem;
+  padding: 0.9rem 1.1rem;
+  border: 2px solid var(--peach);
+  border-radius: 999px;
   background: #fff;
-  color: #17343c;
+  color: var(--ink);
   cursor: pointer;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .course-option:hover {
-  border-color: #287c72;
-  background: #f5faf9;
+  border-color: var(--orange);
+  background: var(--cream);
 }
 
 .course-option input {
   width: 1.1rem;
   height: 1.1rem;
   margin: 0;
-  accent-color: #176f67;
+  accent-color: var(--orange);
 }
 
 .course-option:focus-within {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
 .course-content {
   margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid #dce8e9;
 }
 
 .course-content p {
@@ -104,86 +162,136 @@ h1 {
   font-size: 1.125rem;
 }
 
+.social-work-course {
+  max-width: 64rem;
+}
+
 .social-work-course h1 {
+  margin-top: calc(var(--page-pad) * -1 - 2rem);
   margin-bottom: 1.5rem;
 }
 
+/* Tabs as pills */
 .course-tabs {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  border-bottom: 1px solid #dce8e9;
+  padding-bottom: 1rem;
+  border-bottom: 2px dotted var(--dots);
 }
 
 .course-tab {
-  padding: 0.7rem 0.9rem;
-  border: 0;
-  border-bottom: 3px solid transparent;
-  background: transparent;
-  color: #526a70;
+  padding: 0.55rem 1.05rem;
+  border: 2px solid var(--peach-soft);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--ink);
   cursor: pointer;
   font: inherit;
-  font-weight: 650;
+  font-weight: 600;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .course-tab:hover {
-  color: #176f67;
+  border-color: var(--orange);
+  background: var(--cream-soft);
 }
 
 .course-tab[aria-selected="true"] {
-  border-bottom-color: #176f67;
-  color: #17343c;
+  border-color: var(--peach);
+  background: var(--peach);
+  color: var(--ink);
 }
 
 .course-tab:focus-visible,
 .course-tab-panel:focus-visible {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
+/* Module content */
 .course-tab-panel {
   min-height: 12rem;
-  padding-top: 1.5rem;
+  max-width: 48rem;
+  padding-top: 2rem;
 }
 
 .course-tab-panel h2 {
-  margin: 0 0 0.5rem;
-  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin: 0 0 1rem;
+  color: var(--orange-text);
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+  font-weight: 700;
+}
+
+.course-tab-panel h3 {
+  margin: 2.25rem 0 0.75rem;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.course-tab-panel h2 + h3 {
+  margin-top: 0.5rem;
+}
+
+.course-tab-panel h4 {
+  margin: 1.5rem 0 0.5rem;
+  color: var(--ink);
+  font-size: 1.05rem;
+  font-weight: 700;
 }
 
 .course-tab-panel p {
   margin: 0 0 1.25rem;
-  color: #526a70;
+  color: var(--ink);
 }
 
-.course-tab-panel h4 {
-  margin: 0 0 0.5rem;
-  color: #17343c;
-  font-size: 1.05rem;
+/* Lead paragraph directly under a module title, like the brochure's orange intro text */
+.course-tab-panel > h2 + p {
+  color: var(--orange-text);
+  font-size: 1.2rem;
+  font-weight: 700;
 }
 
+.course-tab-panel ul,
+.course-tab-panel ol:not(.lesson-list) {
+  padding-left: 1.25rem;
+}
+
+.course-tab-panel li::marker {
+  color: var(--orange);
+}
+
+/* Pop-ups styled as brochure info boxes: cream fill, dotted top and bottom lines */
 .section-toggle {
-  margin: 1.5rem 0;
+  margin: 1.75rem 0;
+  border-top: 2px dotted var(--dots);
+  border-bottom: 2px dotted var(--dots);
+  background: var(--cream-soft);
 }
 
 .section-toggle summary {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 0.5rem;
-  padding: 0.85rem 1.1rem;
-  border: 1px solid #dce8e9;
-  border-radius: 0.5rem;
-  background: #fff;
+  gap: 0.75rem;
+  padding: 0.9rem 1.1rem;
+  background: var(--cream);
   cursor: pointer;
   list-style: none;
-  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  transition: background-color 0.15s ease;
 }
 
 .section-toggle summary:hover {
-  transform: scale(1.015);
-  border-color: #176f67;
-  box-shadow: 0 0.5rem 1rem rgb(23 52 60 / 10%);
+  background: var(--peach-soft);
+}
+
+.section-toggle + .section-toggle {
+  margin-top: -1rem;
+}
+
+.section-toggle[open] summary {
+  border-bottom: 2px dotted var(--dots);
 }
 
 .section-toggle summary::-webkit-details-marker {
@@ -194,15 +302,27 @@ h1 {
   content: "";
 }
 
-.section-toggle summary h3 {
+.section-toggle summary h3,
+.section-toggle summary h4 {
   margin: 0;
+  color: var(--orange-text);
+  font-family: var(--font-display);
+  font-weight: 700;
 }
 
 .section-toggle summary::after {
   content: "+";
-  color: #176f67;
-  font-weight: 650;
+  display: grid;
+  flex: none;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
   font-size: 1.25rem;
+  line-height: 1;
 }
 
 .section-toggle[open] summary::after {
@@ -210,23 +330,60 @@ h1 {
 }
 
 .section-toggle summary:focus-visible {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
 .section-toggle-content {
-  margin-top: 0.5rem;
+  padding: 1.1rem 1.1rem 1.25rem;
+}
+
+.section-toggle-content > :last-child {
+  margin-bottom: 0;
 }
 
 .section-toggle-content p {
-  color: #17343c;
+  color: var(--ink);
 }
 
+.section-toggle-content h4 {
+  margin-top: 1.5rem;
+}
+
+.section-toggle-content h5 {
+  margin: 1.75rem 0 0.5rem;
+  color: var(--orange-text);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+}
+
+.bct-list {
+  margin: 0;
+}
+
+.bct-list dt {
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dotted var(--dots);
+  font-weight: 700;
+}
+
+.bct-list dt:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.bct-list dd {
+  margin: 0.25rem 0 0;
+  line-height: 1.55;
+}
+
+/* Lesson lists styled like the brochure table of contents */
 .lesson-list {
   display: grid;
-  gap: 0.5rem;
-  margin: 0;
+  margin: 0 0 1.5rem;
   padding: 0;
+  border-top: 2px dotted var(--dots);
   list-style: none;
 }
 
@@ -235,29 +392,24 @@ h1 {
   flex-wrap: wrap;
   justify-content: space-between;
   gap: 0.25rem 1rem;
-  padding: 0.85rem 1rem;
-  border: 1px solid #dce8e9;
-  border-radius: 0.5rem;
-  background: #fff;
+  padding: 0.85rem 0.25rem;
+  border-bottom: 2px dotted var(--dots);
+  font-weight: 600;
 }
 
 .lesson-list li span {
-  color: #526a70;
+  color: var(--orange-text);
   font-size: 0.9rem;
+  font-weight: 600;
 }
 
 .lesson-list li:has(.lesson) {
-  padding: 0;
-  border: 0;
-  background: transparent;
   display: block;
+  padding: 0;
 }
 
 .lesson-list .lesson {
-  border: 1px solid #dce8e9;
-  border-radius: 0.5rem;
-  background: #fff;
-  padding: 0.85rem 1rem;
+  padding: 0.85rem 0.25rem;
 }
 
 .lesson-list .lesson summary,
@@ -284,8 +436,8 @@ h1 {
 
 .lesson-list .lesson summary::after {
   content: "+";
-  color: #176f67;
-  font-weight: 650;
+  color: var(--orange);
+  font-weight: 700;
 }
 
 .lesson-list .lesson[open] summary::after {
@@ -293,16 +445,16 @@ h1 {
 }
 
 .lesson-list .lesson summary:focus-visible {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
 .lesson-list .lesson .lesson-title {
-  color: #17343c;
+  color: var(--ink);
 }
 
 .lesson-list .lesson .lesson-meta {
-  color: #526a70;
+  color: var(--orange-text);
   font-size: 0.9rem;
   white-space: nowrap;
 }
@@ -311,14 +463,15 @@ h1 {
 .lesson-list .lesson .lesson-header {
   margin-bottom: 0.75rem;
   padding-bottom: 0.75rem;
-  border-bottom: 1px solid #dce8e9;
+  border-bottom: 1px dotted var(--dots);
 }
 
 .lesson-content p {
   margin: 0 0 0.75rem;
-  color: #17343c;
+  color: var(--ink);
   font-size: 1rem;
-  line-height: 1.5;
+  font-weight: 400;
+  line-height: 1.55;
 }
 
 .lesson-content p:last-child {
@@ -327,8 +480,9 @@ h1 {
 
 .source-list {
   margin: 0;
-  padding-left: 1.25rem;
-  color: #526a70;
+  padding: 1rem 0 0 1.25rem;
+  border-top: 2px dotted var(--dots);
+  color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.5;
 }
@@ -341,9 +495,12 @@ h1 {
   margin-bottom: 0;
 }
 
+/* Figures on a soft cream card */
 .sem-diagram {
-  margin: 1.5rem 0;
-  padding: 0;
+  margin: 2rem 0;
+  padding: 1.5rem 1.25rem;
+  border-radius: 1.25rem;
+  background: var(--cream-soft);
   text-align: center;
 }
 
@@ -353,6 +510,10 @@ h1 {
   height: auto;
 }
 
+.sem-diagram--wide img {
+  max-width: 520px;
+}
+
 .sem-diagram figcaption {
   margin: 0.75rem auto 0;
   max-width: 30rem;
@@ -360,7 +521,7 @@ h1 {
 
 .sem-diagram figcaption p {
   margin: 0 0 0.4rem;
-  color: #526a70;
+  color: var(--muted);
   font-size: 0.9rem;
 }
 
@@ -369,9 +530,10 @@ h1 {
 }
 
 .sem-diagram-title {
-  color: #17343c;
-  font-weight: 650;
-  font-size: 1rem;
+  color: var(--orange-text) !important;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.05rem !important;
 }
 
 .sem-diagram-note {
@@ -383,23 +545,23 @@ h1 {
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-  z-index: 1;
+  z-index: 2;
 }
 
 .course-menu select {
   min-width: 9rem;
-  padding: 0.7rem 2rem 0.7rem 0.9rem;
-  border: 1px solid #dce8e9;
-  border-radius: 0.5rem;
+  padding: 0.6rem 2rem 0.6rem 1rem;
+  border: 2px solid var(--peach);
+  border-radius: 999px;
   background: #fff;
-  color: #17343c;
+  color: var(--ink);
   cursor: pointer;
   font: inherit;
-  font-weight: 650;
+  font-weight: 600;
 }
 
 .course-menu select:focus-visible {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 3px;
 }
 
@@ -422,15 +584,16 @@ h1 {
   max-width: 48rem;
   margin: 2rem auto 0;
   padding: 1.25rem 1.5rem;
-  border-top: 1px solid #dce8e9;
-  color: #526a70;
+  border-top: 2px dotted var(--dots);
+  color: var(--muted);
   font-size: 0.85rem;
   text-align: center;
 }
 
 body.social-work-active .site-footer {
   max-width: none;
-  padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+  padding: 1.5rem var(--page-pad);
+  background: var(--cream-soft);
 }
 
 .site-footer p {
@@ -442,8 +605,8 @@ body.social-work-active .site-footer {
 }
 
 .site-footer a {
-  color: #176f67;
-  font-weight: 650;
+  color: var(--orange-text);
+  font-weight: 600;
   text-decoration: none;
 }
 
@@ -453,6 +616,30 @@ body.social-work-active .site-footer {
 }
 
 .site-footer a:focus-visible {
-  outline: 3px solid #17343c;
+  outline: 3px solid var(--ink);
   outline-offset: 2px;
+}
+
+@media (max-width: 40rem) {
+  h1 {
+    padding-right: 6rem;
+  }
+
+  body.social-work-active h1 {
+    padding-top: calc(var(--page-pad) + 4rem);
+  }
+
+  .course-menu {
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .welcome::after,
+  body.social-work-active .welcome::after {
+    top: 10rem;
+    right: -60vw;
+    width: 100vw;
+    height: 100vw;
+  }
 }
